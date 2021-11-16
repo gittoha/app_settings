@@ -149,4 +149,13 @@ class AppSettings {
         'asAnotherTask': asAnotherTask,
       });
   }
+
+      /// Future async method call to open fingerprint.
+  static Future<void> openFingerprintSettings({
+    bool asAnotherTask = false,
+  }) async {
+    _channel.invokeMethod('fingerprint', {
+      'asAnotherTask': asAnotherTask,
+    });
+  }
 }

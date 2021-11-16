@@ -126,5 +126,12 @@ class AppSettingsPlugin() : MethodCallHandler, FlutterPlugin, ActivityAware {
         else if (call.method == "accessibility") {
             openSettings(Settings.ACTION_ACCESSIBILITY_SETTINGS, asAnotherTask)
         }
+        else if(call.method == "fingerprint"){
+        try {
+                this.activity.startActivity(Intent(Settings.ACTION_BIOMETRIC_ENROLL))
+         } catch (e: Exception) {
+            this.activity.startActivity(Intent(Settings.ACTION_SETTINGS))
+         }
+        }
     }
 }
